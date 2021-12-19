@@ -40,9 +40,6 @@ class Payments(models.Model):
     date_time = models.DateTimeField(auto_now=True)
     accrued = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __str__(self):
-        return self.accrued
-
     class Meta:
         verbose_name = "payout"
         verbose_name_plural = "payments"

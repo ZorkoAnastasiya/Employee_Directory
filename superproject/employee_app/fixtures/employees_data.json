@@ -1,0 +1,211 @@
+[
+{
+    "model": "employee_app.employees",
+    "pk": 4,
+    "fields": {
+        "full_name": "Alexander Hunold",
+        "date_start": "2021-12-13T00:00:00Z",
+        "position": 4,
+        "salary": "10000.00",
+        "chief": 3
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 5,
+    "fields": {
+        "full_name": "Bruce Ernst",
+        "date_start": "2021-12-13T00:00:00Z",
+        "position": 5,
+        "salary": "12000.00",
+        "chief": 3
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 6,
+    "fields": {
+        "full_name": "David Austin",
+        "date_start": "2021-12-10T00:00:00Z",
+        "position": 6,
+        "salary": "12000.00",
+        "chief": 2
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 7,
+    "fields": {
+        "full_name": "Valli Pataballa",
+        "date_start": "2021-12-14T00:00:00Z",
+        "position": 7,
+        "salary": "12000.00",
+        "chief": 2
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 8,
+    "fields": {
+        "full_name": "Diana Lorentz",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 8,
+        "salary": "6000.00",
+        "chief": 5
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 9,
+    "fields": {
+        "full_name": "Daniel Faviet",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 9,
+        "salary": "6000.00",
+        "chief": 5
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 10,
+    "fields": {
+        "full_name": "John Chen",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 10,
+        "salary": "7000.00",
+        "chief": 5
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 11,
+    "fields": {
+        "full_name": "Nancy Greenberg",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 11,
+        "salary": "5000.00",
+        "chief": 6
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 12,
+    "fields": {
+        "full_name": "Ismael Sciarra",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 12,
+        "salary": "5000.00",
+        "chief": 6
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 13,
+    "fields": {
+        "full_name": "Jose Manuel",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 13,
+        "salary": "6000.00",
+        "chief": 7
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 14,
+    "fields": {
+        "full_name": "Luis Popp",
+        "date_start": "2021-12-16T00:00:00Z",
+        "position": 14,
+        "salary": "5000.00",
+        "chief": 7
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 15,
+    "fields": {
+        "full_name": "Den Raphaely",
+        "date_start": "2021-12-18T00:00:00Z",
+        "position": 15,
+        "salary": "3000.00",
+        "chief": 8
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 16,
+    "fields": {
+        "full_name": "Alexander Khoo",
+        "date_start": "2021-12-18T00:00:00Z",
+        "position": 16,
+        "salary": "3000.00",
+        "chief": 9
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 17,
+    "fields": {
+        "full_name": "Shelli Baidan",
+        "date_start": "2021-12-18T00:00:00Z",
+        "position": 17,
+        "salary": "2500.00",
+        "chief": 12
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 18,
+    "fields": {
+        "full_name": "Sigal Tobias",
+        "date_start": "2021-12-18T00:00:00Z",
+        "position": 18,
+        "salary": "2000.00",
+        "chief": 13
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 19,
+    "fields": {
+        "full_name": "Guy Himuro",
+        "date_start": "2021-12-18T00:00:00Z",
+        "position": 19,
+        "salary": "2000.00",
+        "chief": 14
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 20,
+    "fields": {
+        "full_name": "Karen Colmenares",
+        "date_start": "2021-12-19T00:00:00Z",
+        "position": 15,
+        "salary": "2800.00",
+        "chief": 8
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 21,
+    "fields": {
+        "full_name": "Matthew Weiss",
+        "date_start": "2021-12-19T00:00:00Z",
+        "position": 15,
+        "salary": "2800.00",
+        "chief": 8
+    }
+},
+{
+    "model": "employee_app.employees",
+    "pk": 22,
+    "fields": {
+        "full_name": "Adam Fripp",
+        "date_start": "2021-12-19T00:00:00Z",
+        "position": 18,
+        "salary": "2100.00",
+        "chief": 13
+    }
+}
+]
