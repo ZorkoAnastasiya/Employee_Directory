@@ -130,3 +130,9 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
     "x-user",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
