@@ -19,13 +19,13 @@ class EmployeesAdmin(admin.ModelAdmin):
     @admin.action(description="Delete all payments")
     def delete_total_paid(self, request, queryset):
         for obj in queryset:
-            result = Payments.objects.filter(employee_id=obj)
+            result = obj.payments.all()
             result.delete()
 
     @staticmethod
     def total_paid(obj):
         from django.db.models import Sum
-        result = Payments.objects.filter(employee_id=obj).aggregate(Sum("accrued"))
+        result = obj.payments.aggregate(Sum("accrued"))
         return result["accrued__sum"]
 
 

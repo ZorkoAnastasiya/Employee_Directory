@@ -36,7 +36,7 @@ class Employees(models.Model):
 class Payments(models.Model):
     objects = models.Manager()
 
-    employee = models.ForeignKey(Employees, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employees, on_delete=models.CASCADE, related_name="payments")
     date_time = models.DateTimeField(auto_now=True)
     accrued = models.DecimalField(max_digits=10, decimal_places=2)
 
