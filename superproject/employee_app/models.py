@@ -40,7 +40,7 @@ class Employees(models.Model):
     class Meta:
         verbose_name = "employee"
         verbose_name_plural = "employees"
-        ordering = ["full_name", "id"]
+        ordering = ["id"]
 
 
 class Payments(models.Model):
