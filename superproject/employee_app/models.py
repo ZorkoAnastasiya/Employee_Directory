@@ -27,6 +27,16 @@ class Employees(models.Model):
     def __str__(self):
         return self.full_name
 
+    @property
+    def level(self):
+        employee = Employees.objects.get(id=self.pk)
+        level = 1
+        for _ in range(5):
+            if employee.chief:
+                level += 1
+                employee = Employees.objects.get(id=employee.chief_id)
+        return level
+
     class Meta:
         verbose_name = "employee"
         verbose_name_plural = "employees"

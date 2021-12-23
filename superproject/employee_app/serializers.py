@@ -1,19 +1,18 @@
 from rest_framework import serializers
-from employee_app.models import Employees, Payments
-
-
-class PaymentsSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Payments
-        fields = ["date_time", "accrued"]
+from employee_app.models import Employees
 
 
 class EmployeesSerializer(serializers.HyperlinkedModelSerializer):
     position = serializers.StringRelatedField()
     chief = serializers.StringRelatedField()
-    payments = PaymentsSerializer(many=True, read_only=True)
+    total_paid = serializers.SerializerMethodField()
 
     class Meta:
         model = Employees
-        fields = ["id", "full_name", "date_start", "position", "chief", "salary", "payments"]
+        fields = ["id", "full_name", "date_start", "position", "chief", "salary", "total_paid"]
+
+    @staticmethod
+    def get_total_paid(obj):
+        from django.db.models import Sum
+        return obj.payments.aggregate(Sum("accrued"))
 
