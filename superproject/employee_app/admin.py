@@ -8,27 +8,16 @@ class LevelEmployeeListFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return [
-            ("level_1", "Level 1"),
-            ("level_2", "Level 2"),
-            ("level_3", "Level 3"),
-            ("level_4", "Level 4"),
-            ("level_5", "Level 5")
+            ("1", "Level 1"),
+            ("2", "Level 2"),
+            ("3", "Level 3"),
+            ("4", "Level 4"),
+            ("5", "Level 5")
         ]
 
     def queryset(self, request, queryset):
-        if self.value() == "level_1":
-            return queryset.filter(chief_id__isnull=True)
-        if self.value() == "level_2":
-            result = [obj.id for obj in queryset if obj.level == 2]
-            return queryset.filter(id__in=result)
-        if self.value() == "level_3":
-            result = [obj.id for obj in queryset if obj.level == 3]
-            return queryset.filter(id__in=result)
-        if self.value() == "level_4":
-            result = [obj.id for obj in queryset if obj.level == 4]
-            return queryset.filter(id__in=result)
-        if self.value() == "level_5":
-            result = [obj.id for obj in queryset if obj.level == 5]
+        if self.value() in ["1", "2", "3", "4", "5"]:
+            result = [obj.id for obj in queryset if obj.level == int(self.value())]
             return queryset.filter(id__in=result)
 
 
@@ -40,7 +29,7 @@ class PositionsAdmin(admin.ModelAdmin):
 
 @admin.register(Employees)
 class EmployeesAdmin(admin.ModelAdmin):
-    list_display = ("id", "full_name", "position", "view_chief", "salary", "total_paid", "level")
+    list_display = ("id", "full_name", "position", "view_chief", "salary", "total_paid")
     list_display_links = ("full_name",)
     list_filter = ("position", LevelEmployeeListFilter)
     date_hierarchy = "date_start"

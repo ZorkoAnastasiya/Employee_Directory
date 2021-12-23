@@ -14,18 +14,6 @@ class EmployeesViewSet(viewsets.ReadOnlyModelViewSet):
         queryset = Employees.objects.all()
         level = self.request.query_params.get("level")
         if level is not None:
-            if level == "1":
-                queryset = queryset.filter(chief_id__isnull=True)
-            if level == "2":
-                result = [obj.id for obj in queryset if obj.level == 2]
-                queryset = queryset.filter(id__in=result)
-            if level == "3":
-                result = [obj.id for obj in queryset if obj.level == 3]
-                queryset = queryset.filter(id__in=result)
-            if level == "4":
-                result = [obj.id for obj in queryset if obj.level == 4]
-                queryset = queryset.filter(id__in=result)
-            if level == "5":
-                result = [obj.id for obj in queryset if obj.level == 5]
-                queryset = queryset.filter(id__in=result)
+            result = [obj.id for obj in queryset if obj.level == int(level)]
+            queryset = queryset.filter(id__in=result)
         return queryset
