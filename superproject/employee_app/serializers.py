@@ -21,7 +21,9 @@ class EmployeesSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     @staticmethod
-    def get_total_paid(obj):
+    def get_total_paid(obj) -> float:
+        """Adds the value of a calculated field to the serializer."""
+
         from django.db.models import Sum
 
         return obj.payments.aggregate(Sum("accrued"))

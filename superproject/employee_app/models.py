@@ -33,7 +33,9 @@ class Employees(models.Model):
         return self.full_name
 
     @property
-    def level(self):
+    def level(self) -> int:
+        """Finds all the parents of the object."""
+
         employee = Employees.objects.get(id=self.pk)
         level = 1
         for _ in range(5):

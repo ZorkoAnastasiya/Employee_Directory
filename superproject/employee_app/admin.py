@@ -4,10 +4,14 @@ from employee_app.models import Employees, Payments, Positions
 
 
 class LevelEmployeeListFilter(admin.SimpleListFilter):
+    """Filtering employees by the hierarchy level in the company."""
+
     title = "Level Employees"
     parameter_name = "level"
 
-    def lookups(self, request, model_admin):
+    def lookups(self, request, model_admin) -> list[tuple[str, str]]:
+        """Returns the names of filtering fields and links to them."""
+
         return [
             ("1", "Level 1"),
             ("2", "Level 2"),
@@ -16,7 +20,9 @@ class LevelEmployeeListFilter(admin.SimpleListFilter):
             ("5", "Level 5"),
         ]
 
-    def queryset(self, request, queryset):
+    def queryset(self, request, queryset) -> list[object]:
+        """Returns a list of employees for each level."""
+
         if self.value() in ["1", "2", "3", "4", "5"]:
             result = [obj.id for obj in queryset if obj.level == int(self.value())]
             return queryset.filter(id__in=result)
@@ -37,12 +43,16 @@ class EmployeesAdmin(admin.ModelAdmin):
     actions = ["delete_total_paid"]
 
     @admin.action(description="Delete all payments")
-    def delete_total_paid(self, request, queryset):
+    def delete_total_paid(self, request, queryset) -> None:
+        """Removes all charges for the selected object."""
+
         for obj in queryset:
             result = obj.payments.all()
             result.delete()
 
-    def view_chief(self, obj):
+    def view_chief(self, obj) -> str:
+        """Returns a reference to the chef object."""
+
         from django.urls import reverse
         from django.utils.html import format_html
         from django.utils.http import urlencode
@@ -59,7 +69,12 @@ class EmployeesAdmin(admin.ModelAdmin):
     view_chief.short_description = "Chief"
 
     @staticmethod
-    def total_paid(obj):
+    def total_paid(obj) -> float:
+        """
+        Summation of all payments.
+        Creating a calculated field in the admin panel.
+        """
+
         from django.db.models import Sum
 
         result = obj.payments.aggregate(Sum("accrued"))

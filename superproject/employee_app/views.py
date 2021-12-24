@@ -11,7 +11,12 @@ class EmployeesViewSet(viewsets.ModelViewSet):
     permission_classes = (IsManagerAuthenticated,)
     serializer_class = EmployeesSerializer
 
-    def get_queryset(self):
+    def get_queryset(self) -> list[object]:
+        """
+        Returns a list of all objects.
+        If specified, the "level" query parameter returns a list of objects of the given level.
+        """
+
         queryset = Employees.objects.all()
         level = self.request.query_params.get("level")
         if level is not None:

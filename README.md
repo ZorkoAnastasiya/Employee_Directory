@@ -31,4 +31,6 @@
         python manage.py runserver
         ```
     - Create a group "Managers" in the admin panel. Users added to this group have access to the API or users with the "superuser" status.
+
+    - For a complete picture, enter the data in the Payments table.
 ---	
