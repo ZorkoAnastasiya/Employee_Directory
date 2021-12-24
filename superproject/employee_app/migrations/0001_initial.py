@@ -8,54 +8,93 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Employees',
+            name="Employees",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.TextField()),
-                ('date_start', models.DateTimeField()),
-                ('salary', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('chief', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='employees', to='employee_app.employees')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("full_name", models.TextField()),
+                ("date_start", models.DateTimeField()),
+                ("salary", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "chief",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="employees",
+                        to="employee_app.employees",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'employee',
-                'verbose_name_plural': 'employees',
-                'ordering': ['full_name', 'id'],
+                "verbose_name": "employee",
+                "verbose_name_plural": "employees",
+                "ordering": ["full_name", "id"],
             },
         ),
         migrations.CreateModel(
-            name='Positions',
+            name="Positions",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('job_title', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("job_title", models.CharField(max_length=200)),
             ],
             options={
-                'verbose_name': 'position',
-                'verbose_name_plural': 'positions',
-                'ordering': ['id'],
+                "verbose_name": "position",
+                "verbose_name_plural": "positions",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='Payments',
+            name="Payments",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_time', models.DateTimeField(auto_now=True)),
-                ('accrued', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('employee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='employee_app.employees')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date_time", models.DateTimeField(auto_now=True)),
+                ("accrued", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "employee",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="employee_app.employees",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'payout',
-                'verbose_name_plural': 'payments',
-                'ordering': ['-id'],
+                "verbose_name": "payout",
+                "verbose_name_plural": "payments",
+                "ordering": ["-id"],
             },
         ),
         migrations.AddField(
-            model_name='employees',
-            name='position',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='employee_app.positions'),
+            model_name="employees",
+            name="position",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to="employee_app.positions"
+            ),
         ),
     ]

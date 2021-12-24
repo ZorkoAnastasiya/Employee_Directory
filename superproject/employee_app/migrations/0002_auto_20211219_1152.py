@@ -34,7 +34,7 @@ def add_title_positions(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('employee_app', '0001_initial'),
+        ("employee_app", "0001_initial"),
     ]
 
     operations = [

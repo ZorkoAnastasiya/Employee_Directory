@@ -1,5 +1,6 @@
 from django.contrib import admin
-from employee_app.models import Positions, Employees, Payments
+
+from employee_app.models import Employees, Payments, Positions
 
 
 class LevelEmployeeListFilter(admin.SimpleListFilter):
@@ -12,7 +13,7 @@ class LevelEmployeeListFilter(admin.SimpleListFilter):
             ("2", "Level 2"),
             ("3", "Level 3"),
             ("4", "Level 4"),
-            ("5", "Level 5")
+            ("5", "Level 5"),
         ]
 
     def queryset(self, request, queryset):
@@ -42,18 +43,17 @@ class EmployeesAdmin(admin.ModelAdmin):
             result.delete()
 
     def view_chief(self, obj):
-        from django.utils.html import format_html
         from django.urls import reverse
+        from django.utils.html import format_html
         from django.utils.http import urlencode
+
         url = (
-                reverse("admin:employee_app_employees_changelist")
-                + "?"
-                + urlencode({"id": f"{obj.chief_id}"})
+            reverse("admin:employee_app_employees_changelist")
+            + "?"
+            + urlencode({"id": f"{obj.chief_id}"})
         )
         return format_html(
-            "<a href='{url_id}'>{url_name}</a>",
-            url_id=url,
-            url_name=obj.chief
+            "<a href='{url_id}'>{url_name}</a>", url_id=url, url_name=obj.chief
         )
 
     view_chief.short_description = "Chief"
@@ -61,6 +61,7 @@ class EmployeesAdmin(admin.ModelAdmin):
     @staticmethod
     def total_paid(obj):
         from django.db.models import Sum
+
         result = obj.payments.aggregate(Sum("accrued"))
         return result["accrued__sum"]
 

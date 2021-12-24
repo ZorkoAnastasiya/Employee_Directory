@@ -1,4 +1,5 @@
 from rest_framework.permissions import BasePermission
+
 from employee_app.models import User
 
 
